@@ -1,12 +1,11 @@
-
 use anchor_lang::prelude::*;
 use anchor_spl::token::{self, Token, TokenAccount, Transfer};
 
-declare_id!("FjcpHuBVNAZcrMecuNXcudnY5AWaUF4JJHvTc8gYkPED");
+declare_id!("8My2SGb47iBJW6D5dkCmfXoRU4cjg1p77aiuHDmwakJo");
 
 #[program]
-pub mod x402_payment_splitter {
-    use super::*;
+pub mod equinix_contract {
+   use super::*;
 
     pub fn initialize_splitter(
         ctx: Context<InitializeSplitter>,

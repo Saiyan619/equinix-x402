@@ -6,13 +6,16 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-equinix_program = "FjcpHuBVNAZcrMecuNXcudnY5AWaUF4JJHvTc8gYkPED"
+equinix_contract = "8My2SGb47iBJW6D5dkCmfXoRU4cjg1p77aiuHDmwakJo"
+
+[programs.devnet]
+equinix_contract = "8My2SGb47iBJW6D5dkCmfXoRU4cjg1p77aiuHDmwakJo"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "localnet"
+cluster = "Devnet"
 wallet = "~/.config/solana/id.json"
 
 [scripts]
