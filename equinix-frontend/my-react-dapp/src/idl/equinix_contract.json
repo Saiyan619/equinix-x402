@@ -1,0 +1,279 @@
+{
+  "address": "8My2SGb47iBJW6D5dkCmfXoRU4cjg1p77aiuHDmwakJo",
+  "metadata": {
+    "name": "equinix_contract",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "initialize_splitter",
+      "discriminator": [
+        81,
+        111,
+        81,
+        77,
+        41,
+        36,
+        149,
+        189
+      ],
+      "accounts": [
+        {
+          "name": "splitter",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  112,
+                  108,
+                  105,
+                  116,
+                  116,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "authority"
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "merchant"
+        },
+        {
+          "name": "agent"
+        },
+        {
+          "name": "platform"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "merchant_share",
+          "type": "u8"
+        },
+        {
+          "name": "agent_share",
+          "type": "u8"
+        },
+        {
+          "name": "platform_share",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "split_payment",
+      "discriminator": [
+        142,
+        211,
+        58,
+        150,
+        156,
+        255,
+        35,
+        37
+      ],
+      "accounts": [
+        {
+          "name": "splitter",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  112,
+                  108,
+                  105,
+                  116,
+                  116,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "splitter.authority",
+                "account": "Splitter"
+              }
+            ]
+          }
+        },
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "payer_token_account",
+          "writable": true
+        },
+        {
+          "name": "merchant_token_account",
+          "writable": true
+        },
+        {
+          "name": "agent_token_account",
+          "writable": true
+        },
+        {
+          "name": "platform_token_account",
+          "writable": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "update_shares",
+      "discriminator": [
+        31,
+        59,
+        15,
+        141,
+        227,
+        50,
+        179,
+        253
+      ],
+      "accounts": [
+        {
+          "name": "splitter",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  115,
+                  112,
+                  108,
+                  105,
+                  116,
+                  116,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "authority"
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority",
+          "signer": true,
+          "relations": [
+            "splitter"
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "merchant_share",
+          "type": "u8"
+        },
+        {
+          "name": "agent_share",
+          "type": "u8"
+        },
+        {
+          "name": "platform_share",
+          "type": "u8"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Splitter",
+      "discriminator": [
+        187,
+        177,
+        147,
+        182,
+        44,
+        155,
+        130,
+        202
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "InvalidShares",
+      "msg": "Shares must add up to 100"
+    }
+  ],
+  "types": [
+    {
+      "name": "Splitter",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "merchant",
+            "type": "pubkey"
+          },
+          {
+            "name": "agent",
+            "type": "pubkey"
+          },
+          {
+            "name": "platform",
+            "type": "pubkey"
+          },
+          {
+            "name": "merchant_share",
+            "type": "u8"
+          },
+          {
+            "name": "agent_share",
+            "type": "u8"
+          },
+          {
+            "name": "platform_share",
+            "type": "u8"
+          },
+          {
+            "name": "authority",
+            "type": "pubkey"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    }
+  ]
+}

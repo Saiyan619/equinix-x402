@@ -143,11 +143,11 @@ export async function connectDB() {
     
     await mongoose.connect(mongoURI);
     
-    console.log('✅ MongoDB connected successfully');
-    console.log(`📊 Database: ${mongoose.connection.name}`);
+    console.log('MongoDB connected successfully');
+    console.log(`Database: ${mongoose.connection.name}`);
     
   } catch (error) {
-    console.error('❌ MongoDB connection error:', error);
+    console.error('MongoDB connection error:', error);
     process.exit(1);
   }
 }
