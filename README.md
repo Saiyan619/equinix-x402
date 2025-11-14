@@ -3,10 +3,7 @@
 Instant, trustless payment splitting for APIs using Solana’s x402 protocol
 
 Built for the Corbits x402 Hackathon  
-Demo Video — Coming Soon  
-Live Demo — Coming Soon  
-
----
+Demo Video — https://youtu.be/xvzPjg5EMm8
 
 ## The Problem
 
